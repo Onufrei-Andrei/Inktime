@@ -1,6 +1,61 @@
 # Inktime
 
-1. Funcționalitatea HardwareProiectul se bazează pe microcontroller-ul nRF52840 (Nordic Semiconductor), un SoC de înaltă performanță, ultra-low power, cu nucleu ARM Cortex-M4 și FPU, optimizat pentru aplicații wireless.Module și Componente principale:Microcontroller: nRF52840 – gestionează procesarea datelor și comunicația wireless (Bluetooth, Thread, Zigbee).Oscilator Cristal (XTAL): NORDIC_NRF_1_XTAL_3215_N (32.768 kHz) – asigură precizia ceasului pentru RTC și optimizarea consumului în modul sleep.Componente Pasive: O gamă de rezistențe și condensatori de decuplare (tip 0201/0402) – cruciale pentru filtrarea zgomotului pe liniile de alimentare VDD/VDDH și menținerea integrității semnalului.Comunicație și Procesare:Interfețe digitale: I2C (magistrală dedicată pentru senzori) și GPIO pentru controlul dispozitivelor auxiliare.Consum de Energie:Sistemul folosește regulatorul buck DC/DC integrat în nRF52840.Eficiența energetică este susținută de utilizarea oscilatorului extern de 32.768 kHz, care permite o tranziție rapidă și precisă între stările de consum.2. Alocarea Pinilor nRF52840Alocarea pinilor este realizată conform cerințelor de design identificate în schema SchematicTSC.pdf:ComponentăPin nRF52840Descriere/MotivațieXTAL 32.768 kHzP0.00 / P0.01Pini de intrare/ieșire pentru oscilatorul de joasă frecvență.I2C Interface (SDA)P0.27Linie de date serială pentru comunicarea cu senzori.I2C Interface (SCL)P0.26Linie de ceas serială pentru comunicarea cu senzori.Alimentare (VDD)VDDNodul principal de alimentare a blocului logic.
+# 1. Funcționalitatea Hardware
+
+Proiectul se bazează pe microcontroller-ul **nRF52840** (Nordic Semiconductor), un **SoC de înaltă performanță, ultra-low power**, cu nucleu **ARM Cortex-M4** și **FPU**, optimizat pentru aplicații wireless.
+
+---
+
+## Module și componente principale
+
+### Microcontroller
+- **nRF52840**  
+  Gestionează procesarea datelor și comunicația wireless:
+  - Bluetooth
+  - Thread
+  - Zigbee
+
+### Oscilator cristal (XTAL)
+- **NORDIC_NRF_1_XTAL_3215_N (32.768 kHz)**  
+  Asigură precizia ceasului pentru **RTC** și optimizează consumul în modul **sleep**.
+
+### Componente pasive
+- Rezistențe și condensatori de decuplare (**0201 / 0402**)
+
+Acestea sunt cruciale pentru:
+- filtrarea zgomotului pe liniile de alimentare **VDD / VDDH**
+- menținerea integrității semnalului
+
+---
+
+## Comunicație și procesare
+
+### Interfețe digitale
+- **I2C** – magistrală dedicată pentru senzori
+- **GPIO** – controlul dispozitivelor auxiliare
+
+---
+
+## Consum de energie
+
+Sistemul utilizează regulatorul **buck DC/DC integrat** în nRF52840.
+
+Eficiența energetică este susținută de utilizarea oscilatorului extern de **32.768 kHz**, care permite o tranziție rapidă și precisă între stările de consum.
+
+---
+
+# 2. Alocarea pinilor nRF52840
+
+Alocarea pinilor este realizată conform cerințelor de design identificate în schema **SchematicTSC.pdf**.
+
+| Componentă | Pin nRF52840 | Descriere / Motivație |
+|---|---|---|
+| XTAL 32.768 kHz | P0.00 / P0.01 | Pini de intrare/ieșire pentru oscilatorul de joasă frecvență |
+| I2C Interface (SDA) | P0.27 | Linie de date serială pentru comunicarea cu senzori |
+| I2C Interface (SCL) | P0.26 | Linie de ceas serială pentru comunicarea cu senzori |
+| Alimentare (VDD) | VDD | Nodul principal de alimentare a blocului logic |
+
+---
 
 https://www.snapeda.com/search/?q=XFL4020&search-type=parts - XFL4020
 https://www.snapeda.com/search/?q=SI1308EDL-T1-GE3&search-type=parts - SI1308EDL-T1-GE3
@@ -31,3 +86,8 @@ https://componentsearchengine.com/search?term=0805-WIDE - 0805-WIDE
 
 
 <img width="1285" height="740" alt="image" src="https://github.com/user-attachments/assets/7d5369f6-4058-4051-ab34-adb146c774e9" />
+
+<img width="1183" height="677" alt="image" src="https://github.com/user-attachments/assets/bbc6b866-d9c6-478c-a2e8-834b0dc274fe" />
+
+<img width="596" height="715" alt="image" src="https://github.com/user-attachments/assets/42836e84-38d4-4f60-a4f0-f404b1800b6b" />
+
