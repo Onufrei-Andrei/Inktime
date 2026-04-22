@@ -56,10 +56,12 @@ Alocarea pinilor este realizată conform cerințelor de design identificate în 
 | Alimentare (VDD) | VDD | Nodul principal de alimentare a blocului logic |
 
 ---
+# Diagramă bloc hardware
 
+```mermaid
 graph TD
     subgraph "Sursă de Energie"
-        BAT[Baterie Li-Po] --> CHG[Încărcător USB/PMIC]
+        BAT[Baterie Li-Po] --> CHG[Încărcător USB / PMIC]
         CHG --> REG[Regulator 3.3V]
     end
 
@@ -71,15 +73,17 @@ graph TD
     subgraph "Interfață Utilizator"
         DISP[Display E-Paper]
         BTN[Butoane - 3 unități]
-        SHK[Shaker/Vibrație]
+        SHK[Motor vibrație / shaker]
+
         NRF <--> DISP
         NRF <--> BTN
         NRF <--> SHK
     end
 
-    subgraph "Senzori & Debug"
+    subgraph "Senzori și Debug"
         IMU[IMU - Accelerometru]
-        DBG[JTAG/SWD Debug Port]
+        DBG[JTAG / SWD Debug Port]
+
         NRF <--> IMU
         NRF <--> DBG
     end
@@ -87,11 +91,12 @@ graph TD
     subgraph "Conectivitate"
         USB[USB-C Connector] --> CHG
         USB <--> NRF
-        ANT[Antenă 2.4GHz] --- NRF
+        ANT[Antenă 2.4 GHz] --- NRF
     end
 
     style NRF fill:#f9f,stroke:#333,stroke-width:4px
     style ANT fill:#ccf,stroke:#333
+```
 
 https://www.snapeda.com/search/?q=XFL4020&search-type=parts - XFL4020
 https://www.snapeda.com/search/?q=SI1308EDL-T1-GE3&search-type=parts - SI1308EDL-T1-GE3
