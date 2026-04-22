@@ -57,6 +57,42 @@ Alocarea pinilor este realizată conform cerințelor de design identificate în 
 
 ---
 
+graph TD
+    subgraph "Sursă de Energie"
+        BAT[Baterie Li-Po] --> CHG[Încărcător USB/PMIC]
+        CHG --> REG[Regulator 3.3V]
+    end
+
+    subgraph "Nucleu Procesare"
+        NRF[nRF52840 MCU & Radio]
+        REG --> NRF
+    end
+
+    subgraph "Interfață Utilizator"
+        DISP[Display E-Paper]
+        BTN[Butoane - 3 unități]
+        SHK[Shaker/Vibrație]
+        NRF <--> DISP
+        NRF <--> BTN
+        NRF <--> SHK
+    end
+
+    subgraph "Senzori & Debug"
+        IMU[IMU - Accelerometru]
+        DBG[JTAG/SWD Debug Port]
+        NRF <--> IMU
+        NRF <--> DBG
+    end
+
+    subgraph "Conectivitate"
+        USB[USB-C Connector] --> CHG
+        USB <--> NRF
+        ANT[Antenă 2.4GHz] --- NRF
+    end
+
+    style NRF fill:#f9f,stroke:#333,stroke-width:4px
+    style ANT fill:#ccf,stroke:#333
+
 https://www.snapeda.com/search/?q=XFL4020&search-type=parts - XFL4020
 https://www.snapeda.com/search/?q=SI1308EDL-T1-GE3&search-type=parts - SI1308EDL-T1-GE3
 https://www.snapeda.com/search/?q=MBR0530&search-type=parts - MBR0530
